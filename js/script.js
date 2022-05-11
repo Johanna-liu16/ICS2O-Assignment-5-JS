@@ -14,19 +14,24 @@ if (navigator.serviceWorker) {
 }
 
 ;("use strict")
+
 /**
- * This function calculates area of a parrallelogram.
+ * Input
  */
-function calculate() {
-  // input
-  const length = parseInt(document.getElementById("length-of-pyramid").value)
-  const width = parseInt(document.getElementById("width-of-pyramid").value)
-  const height = parseInt(document.getElementById("height-of-pyramid").value)
+function myButtonClicked() {
+  const count = parseInt(document.getElementById("count").value);
+  let answer = 0;
+  var num = 0;
+  var denominator = 1;
+  var counter = 0;
+    
+    while ( num <= count) {
+      denominator = denominator + 2;
+      answer = (4 / denominator) * -1;
+      counter = num + 1;
+    }
 
-  // process
-  const volume = (length * width * height) / 3
-
-  // output
-  document.getElementById("answers").innerHTML =
-    "Volume is: " + volume.toFixed(2) + " cm³"
+            
+  document.getElementById("answer").innerHTML = 
+    "The sum is: " + answer;
 }
