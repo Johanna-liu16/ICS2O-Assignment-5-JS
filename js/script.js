@@ -19,19 +19,25 @@ if (navigator.serviceWorker) {
  * Input
  */
 function myButtonClicked() {
-  const count = parseInt(document.getElementById("count").value);
-  let answer = 0;
-  var num = 0;
+  var count = parseInt(document.getElementById("count").value);
+  var pi;
   var denominator = 1;
-  var counter = 0;
-    
-    while ( num <= count) {
-      denominator = denominator + 2;
-      answer = (4 / denominator) * -1;
-      counter = num + 1;
-    }
+  var sign = "minus"
 
-            
-  document.getElementById("answer").innerHTML = 
-    "The sum is: " + answer;
+  pi = 4 / denominator;
+  while (count > 1) {
+    if (sign == "minus") {
+      denominator = denominator + 2;
+      pi = pi - 4 / denominator;
+      sign = "plus";
+    } else if (sign == "plus") {
+      denominator = denominator + 2;
+      pi = pi + 4 / denominator;
+      sign = "minus";
+    }
+    count = count - 1;
+  }
+  sign = "minus";
+  denominator = 1;
+  document.getElementById("answer").innerHTML = "The answer is: " + pi;
 }
